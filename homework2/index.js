@@ -63,7 +63,8 @@ const server = http.createServer((request, response) => {
             const parsedChunks = Buffer.concat(chunks).toString();
           
             const studentInfo = parsedChunks.split('=')[1].replace('+', ' ');
-            console.log(`The student name is: ${studentInfo}`); 
+           // console.log(`The student name is: ${studentInfo}`); 
+           fs.writeFileSync(studentPath, `The student name is: ${studentInfo}`);
             
         });
         response.end();
